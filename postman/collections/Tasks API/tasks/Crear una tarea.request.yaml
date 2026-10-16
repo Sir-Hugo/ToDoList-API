@@ -1,0 +1,46 @@
+$kind: http-request
+description: ""
+url: "{{baseUrl}}/tasks"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Preparar la demo",
+      "description": "Ensayar cada paso",
+      "done": false
+    }
+  $type: |-
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "example": "Preparar la demo"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 2000,
+          "example": "Ensayar cada paso"
+        },
+        "done": {
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{bearerToken}}"
+settings: {}
+examples: ./.resources/Crear una tarea.resources/examples
+order: 2000

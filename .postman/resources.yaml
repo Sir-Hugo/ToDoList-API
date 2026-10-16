@@ -1,0 +1,8 @@
+workspace:
+  id: 2c504149-a0b2-4937-9089-7c645d122fbc
+localResources:
+  specs:
+    - ../postman/specs/Tasks API/index.json
+resourceNameMappings:
+  specs:
+    - ../postman/specs/Tasks API/index.json: Tasks API

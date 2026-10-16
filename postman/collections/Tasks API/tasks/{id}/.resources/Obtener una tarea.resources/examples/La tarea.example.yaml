@@ -1,0 +1,70 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/tasks/:id"
+  method: GET
+  headers:
+    - key: Accept
+      value: application/json
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+  pathVariables:
+    id: "3513"
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 1,
+        "title": "Preparar la demo",
+        "description": "Ensayar cada paso",
+        "done": false,
+        "created_at": "2026-10-01T12:00:00Z"
+      }
+    $type: |-
+      {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991,
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "example": "Preparar la demo"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "example": "Ensayar cada paso"
+          },
+          "done": {
+            "type": "boolean",
+            "example": false
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2026-10-01T12:00:00Z",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "description",
+          "done",
+          "created_at"
+        ]
+      }
+order: 1000

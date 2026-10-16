@@ -1,0 +1,4 @@
+$kind: collection
+description: "Demo del curso Diseño de Software: Web API en Express estructurada por capas + Supabase."
+variables:
+  baseUrl: /api

@@ -1,0 +1,61 @@
+$kind: http-request
+description: ""
+url: "{{baseUrl}}/tasks/:id"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: id
+    value: "3513"
+    disabled: false
+    description: ""
+    $type: |-
+      {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "value"
+        ]
+      }
+body:
+  type: json
+  content: |-
+    {
+      "title": "Preparar la demo",
+      "description": "Ensayar cada paso",
+      "done": false
+    }
+  $type: |-
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "example": "Preparar la demo"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 2000,
+          "example": "Ensayar cada paso"
+        },
+        "done": {
+          "type": "boolean",
+          "example": false
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{bearerToken}}"
+settings: {}
+examples: ./.resources/Actualizar parcialmente una tarea.resources/examples
+order: 2000

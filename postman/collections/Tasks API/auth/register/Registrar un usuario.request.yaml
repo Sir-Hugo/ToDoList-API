@@ -1,0 +1,38 @@
+$kind: http-request
+description: ""
+url: "{{baseUrl}}/auth/register"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "ana@test.com",
+      "password": "SuperSecreta"
+    }
+  $type: |-
+    {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "ana@test.com",
+          "format": "email"
+        },
+        "password": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 72,
+          "example": "SuperSecreta"
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    }
+settings: {}
+examples: ./.resources/Registrar un usuario.resources/examples
+order: 1000
